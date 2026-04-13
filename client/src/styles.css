@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+@theme {
+  /*colors*/
+  --color-black: #0D0028;
+  --color-dark-gray: #847C96;
+  --color-light-gray: #d5caed;
+  --color-bg: #F4EFFF;
+  --color-primary: #9360FF;
+  --color-secondary: #a880ff;
+  --color-tertiary: #c2a6ff;
+  --color-quaternary: #d7c5ff;
+}
+
+@font-face {
+  font-family: kronaone; /* set name */
+  src: url('assets/KronaOne-Regular.ttf'); /* url of the font */
+}
+
+@font-face {
+  font-family: inter; /* set name */
+  src: url('assets/Inter-VariableFont_opsz,wght.ttf'); /* url of the font */
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+h1 /* header text */ {
+  font-family: kronaone;
+  font-size: 16px;
+}
+
+span /* normal */ {
+  font-family: inter;
+  font-size: 15px;
+}
+
+small /* small */ {
+  font-family: inter;
+  font-size: 12px;
+}
+
+span.xs /* xs */ {
+  font-family: inter;
+  font-size: 10px;
+  font-weight: 500;
+}
+
+span.button /*button*/ {
+  font-family: inter;
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+span.xl /* XL */ {
+  font-family: kronaone;
+  font-size: 26px;
+}
+
+span.ntype /* normal typeable */ {
+  font-family: inter;
+  font-size: 15px;
+  color: var(--color-dark-gray);
+}
+
+span.buttons /* buttonS */ {
+  font-family: inter;
+  font-size: 12px;
+}
+
+span.nbold /*normal bold*/ {
+  font-family: inter;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+span.xlint /* xl inter */ {
+  font-family: inter;
+  font-size: 26px;
+}
+
+
+
+button.buttonS {
+  background: var(--color-black);
+  font-family: inter;
+  font-size: 12px;
+  color: white;
+  border-radius: 40px;
+  padding: 3px 8px;
+}
+
+button.buttonS.white {
+  background: white;
+  font-family: inter;
+  font-size: 12px;
+  color: var(--color-black);
+  border-radius: 40px;
+  padding: 3px 8px;
+}
+
+input {
+  font-family: inter;
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: var(--color-dark-gray)
+}
+
+button.default {
+  width: 50%;
+  height: auto;
+  font-family: inter;
+  font-size: 24px;
+  font-weight: bolder;
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--color-black);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.default:disabled {
+  width: 50%;
+  height: auto;
+  font-family: inter;
+  font-size: 24px;
+  font-weight: bolder;
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--color-black);
+  color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.alt {
+  width: 50%;
+  height: auto;
+  font-family: inter;
+  font-size: 24px;
+  font-weight: bolder;
+  padding: 16px;
+  border-radius: 20px;
+  background: var(--color-dark-gray);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button.buttonM {
+  background: white;
+  font-family: inter;
+  font-size: 15px;
+  color: var(--color-black);
+  border-radius: 40px;
+  padding: 3px 8px;
+  height: 40px;
+}
+
+button.buttonM.light {
+  background: var(--color-light-gray);
+  font-family: inter;
+  font-size: 15px;
+  color: var(--color-black);
+  border-radius: 40px;
+  padding: 3px 8px;
+  height: 40px;
+}
+
+span.tag {
+    background: var(--color-primary);
+    font-family: inter;
+    font-size: 12px;
+    color: white;
+    border-radius: 40px;
+    padding: 3px 8px;
+}
+
+.add {
+  width: 20px;
+  height: 20px;
+  background: var(--color-light-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 16px;
+}
+
+
+.parent-container {
+  position: relative;
+  width: 100%;
+}
+
+/* The actual scrollable area */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none; /* Firefox */
+}
+
+.Btag {
+  display: inline-flex;
+  align-items: center;
+
+  /* Hug contents until 229px */
+  width: fit-content;
+  max-width: 229px;
+  flex-shrink: 0;
+  height: 48px;
+
+  /* Spacing */
+  /* Right padding must be at least as wide as your arrow point (20px) */
+  padding: 0 30px 0 16px; 
+  box-sizing: border-box;
+
+  /* The Shape: Using calc to keep the point a fixed 20px width */
+  clip-path: polygon(
+    0% 0%, 
+    calc(100% - 20px) 0%, 
+    100% 50%, 
+    calc(100% - 20px) 100%, 
+    0% 100%
+  );
+
+  border-radius: 10px 0 0 10px; 
+}
+
+input.buttonS.light {
+  background: var(--color-light-gray);
+  font-family: inter;
+  font-size: 12px;
+  color: var(--color-black);
+  border-radius: 40px;
+  padding: 3px 8px;
+  width: fit-content;
+}
+
+input.buttonS.light::placeholder {
+  color: var(--color-black);
+  opacity: 1; 
+}
+
+input.buttonM.light {
+  background: var(--color-light-gray);
+  font-family: inter;
+  font-size: 15px;
+  color: var(--color-black);
+  font-weight: bold;
+  border-radius: 40px;
+  padding: 3px 12px;
+  height: 40px;
+
+  width: auto; 
+  display: inline-block;
+  border: none;
+  outline: none;
+  text-align: center;
+}
+
+.postimg {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}

@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+body, #root {
+  height: 100dvh;
+  width: 100vw;
+  margin: 0;
+  overflow: hidden;
+  background-color: #F4EFFF;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+  min-height: 100dvh;
+}
+
+/* Hide scrollbars */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
+
+:root {
+  --design-width: 393;
+}
+
+/* Fixed 9:18 canvas — always 393×786px before scaling */
+.app-container {
+  width: 393px;
+  height: calc(393px * 18 / 9);
+  transform-origin: top center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+/* Portrait: narrower than 9:18 — scale by width */
+@media (max-aspect-ratio: 9/18) {
+  .app-container {
+    height: calc(393px * 100dvh / 100vw);
+    transform: scale(calc(100vw / 393px));
+  }
+}
+
+/* Landscape/square: wider than 9:18 — scale by height, black side borders */
+@media (min-aspect-ratio: 9/18) {
+  .app-container {
+    height: calc(393px * 18 / 9);
+    transform: scale(calc(100dvh / (393px * 18 / 9)));
+  }
+}
+
+.app-container > div:first-of-type {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #eeeaf4;
+}

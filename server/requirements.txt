@@ -1,0 +1,8 @@
+flask
+flask-cors
+flask-limiter
+pyairtable
+python-dotenv
+werkzeug
+requests
+cachetools
