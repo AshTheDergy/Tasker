@@ -135,27 +135,31 @@ function SocialDivider() {
 }
 
 const SOCIAL_PROVIDERS = [
-  { id: "google",   label: "Google",   Icon: GoogleIcon,   bg: "bg-white",      text: "text-[#111]", border: "border border-gray-200", shadow: "shadow-sm" },
-  { id: "facebook", label: "Facebook", Icon: FacebookIcon, bg: "bg-[#0080ff]",  text: "text-white",  border: "",                      shadow: "" },
-  { id: "x",        label: "X",        Icon: XIcon,        bg: "bg-[#0f0f0f]",  text: "text-white",  border: "",                      shadow: "" },
-  { id: "discord",  label: "Discord",  Icon: DiscordIcon,  bg: "bg-[#5865F2]",  text: "text-white",  border: "",                      shadow: "" },
+  { id: "google",   label: "Google",   Icon: GoogleIcon,   bg: "bg-white",      text: "text-[#111]", border: "border border-gray-200",    shadow: "shadow-sm shadow-gray-200/80" },
+  { id: "facebook", label: "Facebook", Icon: FacebookIcon, bg: "bg-[#0080ff]",  text: "text-white",  border: "border border-[#1a8fff]",   shadow: "shadow-sm shadow-[#0080ff]/40", disabled: true },
+  { id: "x",        label: "X",        Icon: XIcon,        bg: "bg-[#0f0f0f]",  text: "text-white",  border: "border border-[#2a2a2a]",   shadow: "shadow-sm shadow-black/30" },
+  { id: "discord",  label: "Discord",  Icon: DiscordIcon,  bg: "bg-[#5865F2]",  text: "text-white",  border: "border border-[#6e7af4]",   shadow: "shadow-sm shadow-[#5865F2]/40" },
 ];
 
 function SocialLoginButtons({ onSocial }) {
   return (
     <div className="flex gap-2">
-      {SOCIAL_PROVIDERS.map(({ id, label, Icon, bg, text, border, shadow }) => (
-        <button
-          disabled={id === "facebook"} // FACEBOOK LOGIN DOESNT WORK, BECAUSE I COULDNT ACCESS THE TOKENS
-          key={id}
-          onClick={() => onSocial(id)}
-          {...bp}
-          title={`Continue with ${label}`}
-          className={`flex-1 py-[13px] rounded-2xl ${bg} ${text} ${border} ${shadow} flex items-center justify-center cursor-pointer transition-[transform,opacity] duration-150`}
-        >
-          <Icon />
-        </button>
-      ))}
+      {SOCIAL_PROVIDERS.map(({ id, label, Icon, bg, text, border, shadow }) => {
+        const isDisabled = id === "facebook"; // FACEBOOK DOESNT WORK AT THE MOMENT
+        return (
+          <button
+            disabled={isDisabled}
+            key={id}
+            onClick={() => onSocial(id)}
+            {...bp}
+            title={isDisabled ? `${label} login is temporarily unavailable` : `Continue with ${label}`}
+            className={`flex-1 py-[13px] rounded-2xl ${bg} ${text} ${border} ${shadow} flex items-center justify-center transition-[transform,opacity] duration-150
+              ${isDisabled ? "opacity-40 cursor-not-allowed" : "cursor-pointer"}`}
+          >
+            <Icon />
+          </button>
+        );
+      })}
     </div>
   );
 }
@@ -421,6 +425,17 @@ function ProfileStep({
 // Main component
 
 export default function Login() {
+
+  // useEffect(() => {
+  //   const gradient = "linear-gradient(148deg, #5B21B6 0%, #7C3AED 45%, #8B5CF6 100%)";
+  //   document.body.style.background = gradient;
+  //   document.getElementById("root").style.background = gradient;
+  //   return () => {
+  //     document.body.style.background = "";
+  //     document.getElementById("root").style.background = "";
+  //   };
+  // }, []);
+
   const { user, setUser } = useUser();
   const navigate = useNavigate();
 
