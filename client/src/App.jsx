@@ -158,7 +158,7 @@ export default function App() {
               } 
             />
             
-            <Route element={<RequireAuth />}>
+            <Route key={user?.id} element={<RequireAuth />}>
               <Route path="/home"         element={<HomeScreen onNotifications={() => setNotifsOpen(true)} />} />
               <Route path="/newtask"      element={<NewTask />} />
               <Route path="/profile"      element={<Profile />} />
